@@ -9,7 +9,6 @@ import java.util.Map;
 @RestController
 @Slf4j
 @RequestMapping("/api/v1/user")
-@Service("controller")
 public class Controller {
     private final UserService userService;
 

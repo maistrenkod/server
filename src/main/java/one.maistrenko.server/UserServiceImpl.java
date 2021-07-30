@@ -22,6 +22,7 @@ public class UserServiceImpl implements UserService {
                 .userid(generateId())
                 .username(user.getUsername())
                 .password(user.getPassword())
+                .role(user.getRole())
                 .build();
         users.put(id, helpUser);
         user.setUserid(id);
@@ -38,6 +39,7 @@ public class UserServiceImpl implements UserService {
         }
         helpUser.setUsername(user.getUsername());
         helpUser.setPassword(user.getPassword());
+        helpUser.setRole(user.getRole());
         log.info("User {{}} was updated", user);
         return user;
     }
@@ -64,6 +66,7 @@ public class UserServiceImpl implements UserService {
                 .userid(userId)
                 .username(helpuser.getUsername())
                 .password(helpuser.getPassword())
+                .role(helpuser.getRole())
                 .build();
     }
 
