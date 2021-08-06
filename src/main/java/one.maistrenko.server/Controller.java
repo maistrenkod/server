@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.Map;
 
 @RestController
@@ -44,5 +45,21 @@ public class Controller {
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody Map<Long, User> showAllUsers(){
         return userService.showAllUsers();
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "user")
+    public @ResponseBody String infoForUser() {
+        return "You are a user!";
+    }
+
+    @RolesAllowed("ROLE_ADMIN")
+    @RequestMapping(method = RequestMethod.GET, value = "admin")
+    public  @ResponseBody String infoForAdmin(){
+        return "You are an admin!";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "none")
+    public @ResponseBody String infoForNone(){
+        return "You are a guest";
     }
 }

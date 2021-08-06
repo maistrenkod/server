@@ -14,4 +14,4 @@ public class User {
     private Role role;
 }
 
-enum Role{ADMIN, USER}
+enum Role{ADMIN, USER, NONE}
